@@ -24,14 +24,22 @@ async function init() {
   const quoteText = document.getElementById("quote");
   const musicFrame = document.getElementById("music");
 
+  // 📦 모델 로드
   await faceapi.nets.tinyFaceDetector.loadFromUri("/models");
   await faceapi.nets.faceExpressionNet.loadFromUri("/models");
   await faceapi.nets.faceLandmark68Net.loadFromUri("/models");
 
-  navigator.mediaDevices.getUserMedia({ video: {} }).then((stream) => {
+  // 🎥 카메라 예외 처리
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
     video.srcObject = stream;
-  });
+  } catch (err) {
+    console.error("카메라 장치가 없습니다:", err);
+    emotionText.innerText = "⚠️ 카메라를 찾을 수 없습니다.";
+    return; // 더 이상 감정 분석 루프를 돌지 않음
+  }
 
+  // 🎯 감정 분석 루프
   video.addEventListener("play", async () => {
     setInterval(async () => {
       const detection = await faceapi
