@@ -1,15 +1,3 @@
-// ==========================================
-// 🎭 FaceMuse v3 (API Key .env + External APIs)
-// ==========================================
-
-let YOUTUBE_API_KEY = "";
-
-async function loadAPIKey() {
-  const res = await fetch("/api/key");
-  const data = await res.json();
-  YOUTUBE_API_KEY = data.key;
-}
-
 const emotionColors = {
   happy: "#FFE066",
   sad: "#74A4FF",
@@ -18,61 +6,27 @@ const emotionColors = {
   neutral: "#C0C0C0",
 };
 
-// 🎬 명언 API (Quotable)
-async function getRandomQuote(emotion) {
-  const tags = {
-    happy: "happiness|smile|positive",
-    sad: "sad|life|pain",
-    angry: "anger|control|patience",
-    surprised: "inspiration|change|growth",
-    neutral: "wisdom|peace|mindfulness",
-  };
+// 🎬 ZenQuotes 명언 API
+async function getRandomQuote() {
   try {
-    const res = await fetch(
-      `https://api.quotable.io/random?tags=${tags[emotion] || "life"}`
-    );
+    const res = await fetch("/api/quote");
     const data = await res.json();
-    return `"${data.content}" — ${data.author}`;
+    return `"${data.q}" — ${data.a}`;
   } catch (err) {
     console.error("명언 API 오류:", err);
     return "오늘은 당신이 직접 명언을 만들어보세요 🌿";
   }
 }
 
-// 🎵 유튜브 API
-async function getRandomMusic(emotion) {
-  try {
-    const query = `${emotion} music playlist`;
-    const res = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
-        query
-      )}&maxResults=10&type=video&key=${YOUTUBE_API_KEY}`
-    );
-    const data = await res.json();
-    const videos = data.items;
-    if (!videos || videos.length === 0) return null;
-    const random = videos[Math.floor(Math.random() * videos.length)];
-    return random.id.videoId;
-  } catch (err) {
-    console.error("YouTube API 오류:", err);
-    return null;
-  }
-}
-
 async function init() {
-  await loadAPIKey(); // ✅ 서버에서 키 불러오기
-
   const video = document.getElementById("cam");
   const emotionText = document.getElementById("emotion");
   const quoteText = document.getElementById("quote");
   const musicFrame = document.getElementById("music");
 
-  await faceapi.nets.tinyFaceDetector.loadFromUri(
-    "https://cdn.jsdelivr.net/npm/face-api.js/models"
-  );
-  await faceapi.nets.faceExpressionNet.loadFromUri(
-    "https://cdn.jsdelivr.net/npm/face-api.js/models"
-  );
+  await faceapi.nets.tinyFaceDetector.loadFromUri("/models");
+  await faceapi.nets.faceExpressionNet.loadFromUri("/models");
+  await faceapi.nets.faceLandmark68Net.loadFromUri("/models");
 
   navigator.mediaDevices.getUserMedia({ video: {} }).then((stream) => {
     video.srcObject = stream;
@@ -94,16 +48,22 @@ async function init() {
         emotionColors[topEmotion] || "#C0C0C0";
       emotionText.innerText = `지금 감정: ${topEmotion}`;
 
-      const [quote, videoId] = await Promise.all([
-        getRandomQuote(topEmotion),
-        getRandomMusic(topEmotion),
-      ]);
-
+      const quote = await getRandomQuote();
       quoteText.innerText = quote;
-      quoteText.classList.add("fade-in");
-      if (videoId)
-        musicFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    }, 6000);
+
+      // 🎵 감정별 음악
+      const mood = {
+        happy: "happy music playlist",
+        sad: "sad music playlist",
+        angry: "calm piano music",
+        surprised: "inspiring soundtrack",
+        neutral: "relaxing background music",
+      }[topEmotion];
+
+      musicFrame.src = `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(
+        mood
+      )}&autoplay=1`;
+    }, 7000);
   });
 }
 

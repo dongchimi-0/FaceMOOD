@@ -1,23 +1,25 @@
-// ===========================================
-// 🎭 FaceMuse - Node.js Express Server
-// ===========================================
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-
-dotenv.config(); // .env 파일 읽기
+import fetch from "node-fetch";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
-app.use(express.static("public")); // HTML/CSS/JS 제공
+app.use(express.static("public"));
 
-// 🔐 유튜브 API 키를 프런트엔드에 전달
-app.get("/api/key", (req, res) => {
-  res.json({ key: process.env.YOUTUBE_API_KEY });
+// 🧘 ZenQuotes API 프록시
+app.get("/api/quote", async (req, res) => {
+  try {
+    const response = await fetch("https://zenquotes.io/api/random");
+    const data = await response.json();
+    res.json(data[0]);
+  } catch (err) {
+    console.error("ZenQuotes API 오류:", err);
+    res.status(500).json({ q: "명언을 불러오지 못했습니다.", a: "FaceMuse" });
+  }
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ FaceMuse 서버 실행 중 → http://localhost:${PORT}`);
-});
+app.listen(PORT, () =>
+  console.log(`✅ FaceMuse 서버 실행 중 → http://localhost:${PORT}`)
+);
