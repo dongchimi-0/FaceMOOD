@@ -3,28 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FaceMuse 😄</title>
+  <title>🎭 FaceMuse</title>
   <link rel="stylesheet" href="/index.css" />
 
+  <!-- 📦 TensorFlow.js & Face API -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0/dist/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
 
-  <!-- favicon 없을 때 오류 방지 -->
+  <!-- 파비콘 오류 방지 -->
   <link rel="icon" href="data:,">
 </head>
 
 <body>
   <div class="container">
-    <h1 class="title">🎭 FaceMuse</h1>
-    <p class="subtitle">표정으로 감정을 읽고, 어울리는 음악과 명언을 전해드릴게요</p>
+    <header class="header">
+      <img src="./assets/img/faceMOODlogo.png" alt="FaceMuse 로고" class="logo" />
+      <h1 class="title">🎭 FaceMuse</h1>
+      <p class="subtitle">표정을 인식하고, 어울리는 음악과 명언을 전해드릴게요</p>
+    </header>
 
     <video id="cam" width="400" height="300" autoplay muted></video>
-    <h2 id="emotion">감정 인식 중...</h2>
-    <p id="quote" class="quote">표정을 분석하고 있습니다 👀</p>
+    <h2 id="emotion">👋 FaceMuse에 오신 것을 환영합니다!</h2>
+    <p id="quote" class="quote">카메라 접근을 허용하면 감정 인식이 시작됩니다 🎥</p>
 
     <iframe id="music" width="360" height="200" src="" allow="autoplay; encrypted-media"></iframe>
   </div>
 
   <script defer src="index.js"></script>
 </body>
+
 </html>

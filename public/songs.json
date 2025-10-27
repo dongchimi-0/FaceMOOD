@@ -1,0 +1,62 @@
+{
+  "happy": [
+    { "title": "Pharrell Williams - Happy", "id": "ZbZSe6N_BXs" },
+    { "title": "NewJeans - Super Shy", "id": "ArmDp-zijuc" },
+    { "title": "IVE - After LIKE", "id": "pNfTK39k55U" },
+    { "title": "BTS - Dynamite", "id": "gdZLi9oWNZg" },
+    { "title": "LE SSERAFIM - Smart", "id": "F0OrT8V8Q1Y" },
+    { "title": "Dua Lipa - Dance The Night", "id": "OiC1rgCPmUQ" },
+    { "title": "TWICE - What is Love?", "id": "i0p1bmr0EmE" },
+    { "title": "Doja Cat - Woman", "id": "yxW5yuzVi8w" },
+    { "title": "aespa - Drama", "id": "Xxx0b7dkrRw" },
+    { "title": "Bruno Mars - 24K Magic", "id": "UqyT8IEBkvY" }
+  ],
+  "sad": [
+    { "title": "Adele - Someone Like You", "id": "hLQl3WQQoQ0" },
+    { "title": "IU - Love wins all", "id": "S9N2OEYmbp8" },
+    { "title": "Billie Eilish - What Was I Made For?", "id": "cW8VLC9nnTo" },
+    { "title": "Baek Yerin - Bye Bye My Blue", "id": "WjNssEVlB6M" },
+    { "title": "Sam Smith - Too Good at Goodbyes", "id": "J_ub7Etch2U" },
+    { "title": "Paul Kim - 모든 날, 모든 순간", "id": "y8P2XkQ9FF0" },
+    { "title": "Post Malone - Circles", "id": "wXhTHyIgQ_U" },
+    { "title": "AKMU - 어떻게 이별까지 사랑하겠어", "id": "ScSn235gQx0" },
+    { "title": "ROSÉ - Until I Found You (Cover)", "id": "o1bG0Owdv2Q" },
+    { "title": "Taylor Swift - Exile (feat. Bon Iver)", "id": "osdoLjUNFnA" }
+  ],
+  "angry": [
+    { "title": "Eminem - Lose Yourself", "id": "_Yhyp-_hX2s" },
+    { "title": "BLACKPINK - Kill This Love", "id": "2S24-y0Ij3Y" },
+    { "title": "Linkin Park - Numb", "id": "kXYiU_JCYtU" },
+    { "title": "Imagine Dragons - Believer", "id": "7wtfhZwyrcc" },
+    { "title": "G-Dragon - CROOKED", "id": "RKhsHGfrFmY" },
+    { "title": "NF - The Search", "id": "fnlJw9H0xAM" },
+    { "title": "Doja Cat - Paint The Town Red", "id": "YbG-dAga6Oc" },
+    { "title": "TXT - Good Boy Gone Bad", "id": "Os_6c5j6YiQ" },
+    { "title": "Kendrick Lamar - HUMBLE.", "id": "tvTRZJ-4EyI" },
+    { "title": "RM - Wild Flower (with youjeen)", "id": "u18be_kRmC0" }
+  ],
+  "surprised": [
+    { "title": "Coldplay - Viva La Vida", "id": "dvgZkm1xWPE" },
+    { "title": "aespa - Next Level", "id": "4TWR90KJl84" },
+    { "title": "Stray Kids - S-Class", "id": "js1CtxSY38I" },
+    { "title": "Queen - Don't Stop Me Now", "id": "HgzGwKwLmgM" },
+    { "title": "ZAYN - Dusk Till Dawn", "id": "tt2k8PGm-TI" },
+    { "title": "LE SSERAFIM - EASY", "id": "phtqLxQJPZ8" },
+    { "title": "BTS - FAKE LOVE", "id": "7C2z4GqqS5E" },
+    { "title": "Imagine Dragons - Thunder", "id": "fKopy74weus" },
+    { "title": "NewJeans - ETA", "id": "jOTfBlKSQYY" },
+    { "title": "Taeyeon - I", "id": "4OrCA1OInoo" }
+  ],
+  "neutral": [
+    { "title": "Lauv - Paris in the Rain", "id": "x6Q7c9RyMzk" },
+    { "title": "10CM - 그게 아니고", "id": "m7Pj_fUplN8" },
+    { "title": "Shawn Mendes - Treat You Better", "id": "EvDxSW8mzvU" },
+    { "title": "AKMU - Love Lee", "id": "uY2IM3G1I1Y" },
+    { "title": "Ed Sheeran - Photograph", "id": "nSDgHBxUbVQ" },
+    { "title": "DAY6 - You Were Beautiful", "id": "ZgqsaDnsEq8" },
+    { "title": "Sam Fischer & Demi Lovato - What Other People Say", "id": "mg4-hE8Tq0E" },
+    { "title": "IU - Strawberry Moon", "id": "6uZy86v_9z8" },
+    { "title": "Justin Bieber - Peaches", "id": "tQ0yjYUFKAE" },
+    { "title": "John Legend - All of Me", "id": "450p7goxZqg" }
+  ]
+}
