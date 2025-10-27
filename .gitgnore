@@ -1,0 +1,13 @@
+# 환경 변수 파일 숨기기
+.env
+
+# node_modules 폴더 제외
+node_modules/
+
+# 운영체제별 임시 파일
+.DS_Store
+Thumbs.db
+
+# 로그 파일
+npm-debug.log
+yarn-error.log

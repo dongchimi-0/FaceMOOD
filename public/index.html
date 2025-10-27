@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FaceMuse 😄</title>
+  <link rel="stylesheet" href="index.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🎭 FaceMuse</h1>
+    <p class="subtitle">표정으로 감정을 읽고, 어울리는 음악과 명언을 전해드릴게요</p>
+
+    <video id="cam" width="400" height="300" autoplay muted></video>
+    <h2 id="emotion">감정 인식 중...</h2>
+    <p id="quote" class="quote">표정을 분석하고 있습니다 👀</p>
+
+    <iframe id="music" width="360" height="200" src="" allow="autoplay; encrypted-media"></iframe>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
